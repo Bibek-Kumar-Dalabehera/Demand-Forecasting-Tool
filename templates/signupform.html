@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Signupform</title>
+
+    <script>
+      function validateForm() {
+          var terms = document.getElementById("terms");
+          if (!terms.checked) {
+              alert("You must agree to the Terms and Conditions to submit the form.");
+              return false;
+          }
+          return true;
+      }
+    </script>
+
+    <style>
+      .signup-form {
+        max-width: 400px;
+        margin: 40px auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .signup-form h2 {
+        margin-top: 0;
+        font-weight: bold;
+        color: #333;
+      }
+
+      .signup-form label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .signup-form input[type="text"],
+      .signup-form input[type="email"],
+      .signup-form input[type="tel"],
+      .signup-form input[type="password"] {
+        width: 100%;
+        height: 40px;
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+
+      .signup-form input[type="checkbox"] {
+        margin-right: 10px;
+      }
+
+      .signup-form .terms {
+        margin-bottom: 20px;
+      }
+
+      .signup-form button[type="submit"] {
+        width: 100%;
+        height: 40px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      .signup-form button[type="submit"]:hover {
+        background-color: #3e8e41;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="signup-form">
+      <h2>Sign up for a Free Trial</h2>
+      <form action="{{ url_for('signup') }}" id="signup-form" method="POST" class="my-login-validation" novalidate="" onsubmit="return validateForm()">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="" required autofocus />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="" required autofocus  />
+
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" value="" required autofocus />
+
+        <label for="phone">Phone:</label>
+        <input type="phone" id="phone" name="phone" value="" required autofocus />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="" required autofocus  />
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input
+          type="password"
+          id="confirm_password"
+          name="confirm_password"
+          value="" required autofocus />
+        <div class="form-group ">
+          {% with messages = get_flashed_messages()  %}
+          {% if messages %}
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          {% endfor %}
+          {% endif %}
+          {% endwith %}
+
+          <div class="terms">
+              <input type="checkbox" id="terms" name="terms" required=""/>
+              <p>I agree to the Terms and Conditions</p>
+          </div>
+
+        <button id="/" name="/" type="submit" class="btn btn-primary">Sign up</button>
+        <p style="padding:5px;">Already have an account? <a href="/login">Login</a></p>
+      </div>
+      </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

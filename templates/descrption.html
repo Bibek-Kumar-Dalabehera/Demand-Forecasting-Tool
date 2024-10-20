@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
+    <title>Description</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+      }
+      /* .text {
+      } */
+      .high-contrast {
+        color: #333; /* dark text color */
+        background-color: #fff; /* light background color */
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+      }
+      .hero {
+        background-color: #4d4dff;
+        color: #f0f0f0;
+        padding: 50px;
+        text-align: center;
+        width: 100%;
+      }
+      .hero h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+      }
+      .hero p {
+        font-size: 1.2em;
+        line-height: 1.5em;
+      }
+      .features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 50px;
+        background-color: #4d4dff;
+        color: #f0f0f0;
+      }
+      .feature {
+        flex: 0 0 30%;
+        margin: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .feature h2 {
+        font-size: 1.2em;
+        margin-bottom: 20px;
+      }
+      .feature p {
+        font-size: 1em;
+        line-height: 1.5em;
+      }
+      .feature a {
+        color: #337ab7;
+        text-decoration: none;
+      }
+      .feature a:hover {
+        color: #23527c;
+      }
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .feature {
+          flex: 0 0 45%;
+        }
+      }
+      @media (max-width: 480px) {
+        .feature {
+          flex: 0 0 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="hero">
+        <h1>Forecast electricity demands with precision</h1>
+        <p>
+          Our tool offers advanced features for accurate and reliable demand
+          forecasting based on a variety of input factors.
+        </p>
+      </div>
+      <div class="features">
+        <div class="feature">
+          <h2 class="text  high-contrast">Demand Forecasting</h2>
+          <p class="text  high-contrast">
+            Predict future electricity demands based on various input data for
+            accurate forecasting.
+          </p>
+          <a href="./demandforecasting">Learn more &#8594;</a>
+        </div>
+        <div class="feature">
+          <h2 class="text high-contrast">Data Analysis</h2>
+          <p class="text high-contrast">
+            Utilize machine learning models to analyze and interpret data for
+            accurate forecasting.
+          </p>
+          <a href="./data_analysis">Learn more &#8594;</a>
+        </div>
+        <div class="feature">
+          <h2 class="text  high-contrast">Customizable Inputs</h2>
+          <p class="text  high-contrast">
+            Easily input and adjust different variables such as energy
+            production, imports/exports, and population usage.
+          </p>
+          <a href="./Customizable_Inputs">Learn more &#8594;</a>
+        </div>
+      </div>
+      <!-- Add a call-to-action or additional information here -->
+      <div class="cta">
+        <p class="text  high-contrast">Get started with our forecasting tool today!</p>
+        <a href="/" class="btn">Try it now</a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>

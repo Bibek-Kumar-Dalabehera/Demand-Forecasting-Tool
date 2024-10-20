@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demand Forecasting App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        .card-body {
+            overflow: visible;
+        }
+
+        /* Ensuring select dropdown has enough space */
+        .form-control {
+            height: auto; /* Allow dynamic height */
+            padding: 10px;
+        }
+
+        /* Make sure the dropdown is visible and has enough z-index */
+        .selectpicker {
+            z-index: 1051; 
+            width: 100%;
+        }
+
+        /* Fix dropdown issues */
+        .dropdown-menu {
+            max-height: 250px; /* Adjust height if dropdown overflows */
+            overflow-y: auto;  /* Scrollable if too many options */
+        }
+    </style>
+</head>
+<body style="background-color: #5e3008d6;">
+    <div class="container" style="max-width: 1140px; margin: auto;">
+        <div class="row">
+            <div class="card" style="width: 100%; height: 100%; margin-top: 50px;">
+                <div class="card-header" style="text-align: center; background-color: rgb(174, 255, 0); color: rgb(21, 20, 20);">
+                    <h1>Welcome to Forecasting System</h1>
+                </div>
+                <div class="card-body">
+                    
+
+                    <form id="price_pred" method="POST" action="/price" accept-charset="utf-8">
+                        <div class="row">
+                            <div class="col-md-6 form-group" style="text-align: center;">
+                                <label><b>Select the location:</b></label>
+                                <select class="selectpicker form-control" id="Country" name="Country" required="1">
+                                    {% for Country in Country %}
+                                        <option value="{{ Country }}">{{ Country }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group" style="text-align: center;">
+                                <label><b>Select the Balance:</b></label>
+                                <select class="selectpicker form-control" id="Balance" name="Balance" required="1">
+                                    {% for Balance in Balance %}
+                                        <option value="{{ Balance }}">{{ Balance }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group" style="text-align: center;">
+                                <label><b>Select the Product:</b></label>
+                                <select class="selectpicker form-control" id="Product" name="Product" required="1">
+                                    {% for Product in Product %}
+                                        <option value="{{ Product }}">{{ Product }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group" style="text-align: center;">
+                                <label><b>Select the Month:</b></label>
+                                <select class="selectpicker form-control" id="Month" name="Month" required="1">
+                                    {% for Month in Month %}
+                                        <option value="{{ Month }}">{{ Month }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-6 form-group" style="text-align: center;">
+                                <label><b>Enter Date:</b></label>
+                                <input type="text" class="form-control" id="Date" name="Date" placeholder="Please select a valid date for the chosen month">
+                            </div>
+                            <div class="col-md-12 form-group" style="text-align: center;">
+                                <button class="btn btn-primary form-control" onclick="send_data()"><b>Predict Price</b></button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="col-md-12" style="text-align: center; margin-top: 20px;">
+                        <h3><span id="prediction"></span></h3>
+                    </div>
+                    <br>
+                    <!-- Home link button -->
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <a href="/" class="btn" style="background-color: rgb(174, 255, 0); color: rgb(35, 32, 32);"><strong>Go To Home Page</strong></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function form_handler(event) {
+            event.preventDefault(); // Don't submit the form normally
+        }
+        function send_data() {
+            document.querySelector('form').addEventListener("submit", form_handler);
+
+            var fd = new FormData(document.querySelector('form'));
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/price', true);
+            document.getElementById("prediction").innerHTML = "Wait Predicting Price!";
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    document.getElementById('prediction').innerHTML = "Prediction: $" + xhr.responseText;
+                }
+            };
+
+            xhr.send(fd);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
