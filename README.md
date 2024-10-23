@@ -1,3 +1,7 @@
+**Download the 2 PKL file here:➡️**
+Model_1:https://drive.google.com/file/d/1u-uWgpoUZjdGgnlJ_UIUqaNpL9ZheWlO/view?usp=sharing <br>
+Model_2:https://drive.google.com/file/d/1duDUO2VierhyRXM7rxHxkp4iR0jzxTW1/view?usp=sharing <br>
+
 # Energy Demand Forecasting for Optimal Inventory Management
 ### 1. Introduction
 Organizations in the energy and utilities sector face challenges with accurate demand forecasting. These challenges can lead to stockouts (insufficient inventory) and excess inventory, causing inefficiencies in production planning. This report presents a solution that leverages data-driven forecasting models to improve inventory and production management.
