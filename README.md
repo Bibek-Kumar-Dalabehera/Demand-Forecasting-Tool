@@ -41,7 +41,7 @@ Forecasting energy demand inaccurately leads to:
 | Programming     | Python                                     |
 | Libraries       | Pandas, scikit-learn, Matplotlib, Seaborn  |
 | Web Frontend    | HTML, CSS, JavaScript                      |
-| Web Backend     | Flask                                      |
+| Web Backend     | Flask, Authentication                                      |
 | Cloud & Hosting | Render, AWS                                |
 
 ---
